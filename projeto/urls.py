@@ -15,20 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from django.http import HttpResponse
-
-
-def my_view(request):
-    return HttpResponse('AGORA DEVE APARECER ALGUMA COISA')
-
-
-def my_home_page(request):
-    return HttpResponse('Aqui vai ser a pagina inicial do bagulho')
+from django.urls import include, path
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sobre/', my_view),
-    path('', my_home_page)
+    path('', include('recipes.urls'))
+    # da o endereço para o app responsavel links
 ]
